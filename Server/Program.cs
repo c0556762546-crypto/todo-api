@@ -75,11 +75,11 @@ builder.Services.AddSwaggerGen(c =>
 });
 var app = builder.Build();
 //Swagger הגדרת  
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger(); // מפעיל את Swagger
     app.UseSwaggerUI(); // מפעיל את ממשק המשתמש של Swagger
-}
+//}
 //שימוש ב CORS
 app.UseCors("AllowAllOrigins"); 
 app.UseAuthentication();
