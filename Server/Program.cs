@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // הזרקת DbContext
 builder.Services.AddDbContext<ToDoDbContext>(options =>
    options.UseMySql(
-    builder.Configuration.GetConnectionString("ToDoListDB"), 
+    builder.Configuration.GetConnectionString("ToDoList-DB"), 
     new MySqlServerVersion(new Version(8, 0, 0))
 ));
 // הגדרת CORS
