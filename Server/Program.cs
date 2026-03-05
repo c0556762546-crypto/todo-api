@@ -12,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // הזרקת DbContext
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ToDoList-DB"), 
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoList-DB"))));
+    options.UseMySql(builder.Configuration.GetConnectionString("ToDoListDB"), 
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoListDB"))));
 // הגדרת CORS
 builder.Services.AddCors(options =>
 {
