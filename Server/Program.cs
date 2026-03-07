@@ -86,6 +86,13 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 var app = builder.Build();
+//הוספת הטבלאות למסד
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
+    db.Database.EnsureCreated();
+}
+
 //Swagger הגדרת  
 //if (app.Environment.IsDevelopment())
 //{
