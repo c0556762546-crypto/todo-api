@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-axios.defaults.baseURL = 'https://todo-api-server-sxvy.onrender.com'
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
 const savedToken = localStorage.getItem("token");
 
 // הוספת הטוקן לכל בקשה שיוצאת
