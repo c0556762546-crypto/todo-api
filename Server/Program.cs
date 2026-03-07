@@ -11,8 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // הזרקת DbContext
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") 
+// הזרקת DbContext
+var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+Console.WriteLine($"=== DATABASE_URL is: {(dbUrl == null ? "NULL!!!" : "SET - OK")}");
+
+var connectionString = dbUrl 
+    ?? builder.Configuration["DATABASE_URL"]
     ?? builder.Configuration.GetConnectionString("ToDoList-DB");
+
+Console.WriteLine($"=== connectionString is: {(connectionString == null ? "NULL!!!" : "SET - OK")}");
 
 builder.Services.AddDbContext<ToDoDbContext>(options =>
    options.UseMySql(
